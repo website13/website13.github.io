@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java入门教程：（三）编码风格 | Welcome to my Blog</title><meta name="keywords" content="java教程 java入门 java开发入门教程 java入门教程 编码风格"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="此章内容不涉及java技术，但是他在编码的过程中有着重要的位置。我想早点把这个东西提出来，以便在以后的编码过程中早日良养成好的编码风格。 为什么要有良好的编码风格？什么是良好的编码风格？ 假设我们写的是文章而不是程序，那么你一定觉得诸如文章应该分为若干个自然段、每段开头空两格之类的规则是理所当然的。如果段落的开头不空两格，或者干脆把整个文章写成单独的一段，仔细想来似乎也不会影响文章实质内容的表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门教程：（三）编码风格">
+<meta property="og:url" content="http://website13.github.io/2018/04/03/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC/index.html">
+<meta property="og:site_name" content="Welcome to my Blog">
+<meta property="og:description" content="此章内容不涉及java技术，但是他在编码的过程中有着重要的位置。我想早点把这个东西提出来，以便在以后的编码过程中早日良养成好的编码风格。 为什么要有良好的编码风格？什么是良好的编码风格？ 假设我们写的是文章而不是程序，那么你一定觉得诸如文章应该分为若干个自然段、每段开头空两格之类的规则是理所当然的。如果段落的开头不空两格，或者干脆把整个文章写成单独的一段，仔细想来似乎也不会影响文章实质内容的表">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.pixabay.com/photo/2020/04/02/12/28/clef-4994941_1280.jpg">
+<meta property="article:published_time" content="2018-04-03T11:34:33.000Z">
+<meta property="article:modified_time" content="2022-07-31T10:21:17.646Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java教程 java入门 java开发入门教程 java入门教程 编码风格">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2020/04/02/12/28/clef-4994941_1280.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://website13.github.io/2018/04/03/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java入门教程：（三）编码风格',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-31 18:21:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Welcome to my Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.pixabay.com/photo/2020/04/02/12/28/clef-4994941_1280.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Welcome to my Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门教程：（三）编码风格</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-04-03T11:34:33.000Z" title="发表于 2018-04-03 19:34:33">2018-04-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-31T10:21:17.646Z" title="更新于 2022-07-31 18:21:17">2022-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java入门教程：（三）编码风格"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<p>此章内容不涉及java技术，但是他在编码的过程中有着重要的位置。我想早点把这个东西提出来，以便在以后的编码过程中早日良养成好的编码风格。</p>
+<p>为什么要有良好的编码风格？什么是良好的编码风格？</p>
+<p>假设我们写的是文章而不是程序，那么你一定觉得诸如文章应该分为若干个自然段、每段开头空两格之类的规则是理所当然的。如果段落的开头不空两格，或者干脆把整个文章写成单独的一段，仔细想来似乎也不会影响文章实质内容的表达。既然如此，我们为什么还要在形式上下功夫呢？设想一下，如果你手中的这本书既无章节也无目录，正文中的不同内容都使用同样的字体字号印刷，几百页纸从头至尾洋洋洒洒如念经般地“一气呵成”，你还有耐心看下去吗？</p>
+<p>这是一个人人都能理解的道理，可是当文章变成程序的时候，就不是每个人都能想得通的了。不仅仅是初学者，甚至一些熟练的开发人员，也会写出凌乱不堪的代码。许多人一定有过这样的经历：一年半载之后，自己原来写的程序就完全看不懂了。如果这段程序只是为了交作业，或者临时一用，那还可以不去追究，但如果这是一个商业软件，现在需要根据客户的要求进行修改的话，工作量可就大了——你不得不先花时间把你原来的思路看懂。<br>肯定会有人反驳：代码是给机器运行的，又不是给人看的，写那么好看有什么用？</p>
+<p>这句话只对了前半句：代码确实是给机器运行的，可是机器总共才需要看它几秒甚至只有千分之一秒？你花一个月编写的程序，机器顶多两三秒就编译好了——在这两三秒之前，这代码不都是你在看吗？开发软件编写代码不是一朝一夕的事情，更多的情况下，一个软件的开发要经历很长的时间，并且常常由多人合作完成。一个庞大的软件项目，可能会动用上千名程序员工作数年！如果把代码写得连自己都看不明白，怎么与别人交流？同一个开发团队内，一定要保持良好且一致的代码风格，才能最大化地提高开发效率。</p>
+<p>有的初学者会问：我现在只是一个人写程序，并不需要和其他人合作，这些条条框框还有什么必要吗？<br>要知道，团队协作只是一个方面。我经常遇到这类情况，一些初学者拿着他的程序来说：“这个怎么不能编译？”我帮他把代码整理了半天，发现有一个地方丢了半个大括号。如果他写程序的时候能够稍加注意一些的话，相信此类错误完全可以避免。保持良好的编程习惯，能够避免的错误还远不止这些。<br>如果说程序代码中对算法的清晰表述是通过长期训练而获得的，那么本章要介绍的这些方法则无需伤神，你不必对代码做任何实质性的改动，只需要添加一些空行与空格，就可以使其可读性大大提高——这些规则就像写文章应该分段一样简单，只要愿意遵守，那么别人在第一眼看你的代码时，必能感觉到你那良好的编程修养，即所谓“见字如见人”。</p>
+<p>良好的编码风格就是你的每一行代码看起来时要让人感到清晰，能很容易的就看到其中的语句，假如我把第二节课的代码逻辑与内容不变，只把编码风格改变，就会成这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span>&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[]args)</span> &#123;</span><br><span class="line"><span class="type">float</span> a=<span class="number">333.5f</span>;<span class="type">int</span> b=<span class="number">992</span>;<span class="type">int</span> c=<span class="number">1231</span>;<span class="type">int</span> d=<span class="number">2</span>;<span class="type">float</span> sum=a*(b+c/d);</span><br><span class="line">System.out.println(<span class="string">&quot;计算333.5 * (992 + 1231 / 2)&quot;</span>);System.out.println(sum);System.out.println(a*(b+c/d));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有注释，没有合适的段落与缩进，让人很费劲的一个一个字符的去看，虽然代码运行起来完全没有影响，但我们绝对不能这样写代码。</p>
+<p>每个人的编码风格都会有一定的迥异，作为一名初学者，我建议先不要去创造自己的编码风格，先要去模仿已有的代码的风格，等你有了一个良好的风格之后，再去想别的。</p>
+<p>我的编码风格是从以前的一个公司学到的，整个项目组在提交代码前都会对代码做各种校验，如风格、圈复杂度。我一直使用这套规范，下面我就说下这个编码风格的具体规则。</p>
+<p>1、不同层级之间用table键缩进。你可以看我前两章的代码，花括号里面的代码总是比上层代码多一个table，同级的代码保持相同的缩进。</p>
+<p>2、符号、关键字之间需要一个空格。</p>
+<p>3、方法、类之后的“{”需要换行。</p>
+<p>4、相同结构或功能连续的语句不需要换行，否则需要换行。</p>
+<p>5、必要的语句需要加注释，但不是每一行都加。比如我定义int a &#x3D; 1; 这句话每个人都能看懂，如果我非要加上注释，如：&#x2F;&#x2F;定义一个整型变量a，就显得很罗嗦了。</p>
+<p>6、尽量定义有意义的变量名。我在之前的代码中，总是定义a、b、c这样的，其实是不好的。有意义的比如temp（临时变量，约定成俗的名字，一般不需要注释 ）、totalCount（总数量）、sum（和）之类的，或者用汉语拼音可以，但最好不要缩写， 假如你要定义“小明的年龄”，可以int xiaoMingNianLing或int xiaoMingAge，但是不要拼音缩写成int  xmnl，这样除了你，谁也看不懂，或许过一天连你都看不懂了。另外多说一句，命名方法、或者变量的时候，需要“驼峰命名法”，就是首字母小写，其他每个单词的首字母大写。命名类名的时候，每个单词的首字母都需要大写，变量名不能用java关键字，如int public &#x3D; 1;float int &#x3D; 2.3f;long class 333322l; int for &#x3D;3;这些都是不合法的。</p>
+<p>下面这个代码综合上面的6点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">		<span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">		<span class="type">int</span> <span class="variable">totalCount</span> <span class="operator">=</span> <span class="number">3</span>;<span class="comment">//总数量</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; <span class="number">5</span>; i ++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt; <span class="number">5</span>; j ++) &#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(a);</span><br><span class="line">		System.out.println(temp);</span><br><span class="line">		System.out.println(totalCount);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假如你搜过编码风格，会发现有讨论缩进是“用4个空格还是用table”的讨论。别管他怎么说，你就用table就好。</p>
+<p>作业：</p>
+<p>把下面的代码按照本章所讲的风格重新编排。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个输入两个数字计算加法的程序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">jisuanjiafa</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span></span><br><span class="line">	&#123;</span><br><span class="line"><span class="type">Scanner</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请在Console中请输入一个数字，并按回车&quot;</span>);</span><br><span class="line"><span class="type">float</span> a=s.nextFloat();<span class="comment">//第1个数字</span></span><br><span class="line">System.out.println(<span class="string">&quot;请在Console请输入一个数字，并按回车&quot;</span>);</span><br><span class="line"><span class="type">float</span> b=s.nextFloat();</span><br><span class="line"><span class="type">float</span> <span class="variable">c</span> <span class="operator">=</span> a+b;</span><br><span class="line">System.out.println(<span class="string">&quot;和为：&quot;</span> + c);</span><br><span class="line">&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>上节作业答案：</p>
+<p>1、<img src="https://img-blog.csdn.net/20180402111944756?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">（图1）</p>
+<p><img src="https://img-blog.csdn.net/20180402112044155?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">（图2）</p>
+<p> </p>
+<p><img src="https://img-blog.csdn.net/20180402112328924?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">（图3）</p>
+<p>图1，因为定义的都是整型，乘积结果大于了int范围，所以“溢出了”，显示了错误的结果。</p>
+<p>图2，乘积结果在float范围之内，可以正确显示结果。</p>
+<p>图3，因为有long，自动把int转为了long，计算的乘积在long范围之内，所以结果正确。</p>
+<p>2、<img src="https://img-blog.csdn.net/20180402112538405?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p>因为计算机本身是二进制的，而浮点数实际上只是个近似值，所以从二进制转化为十进制浮点数时，精度容易丢失，导致精度下降，就像十进制无法准确的表示1&#x2F;3一样。下面例子的也一样。不过你可以放心的加、减、乘、除不带小数点的数字。</p>
+<p><img src="https://img-blog.csdn.net/20180402112850698?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p>不过你不用担心，java提供了其他的方法可以精确的计算这个数字，以后会讲到。</p>
+<p>3、<img src="https://img-blog.csdn.net/20180402113752339?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<p>红线框起来的：大写D与小写d都行，同样的F与f，L与l都可以。数字可以用科学计数法表示，同样的大写E与小写e都可以。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java%E6%95%99%E7%A8%8B-java%E5%85%A5%E9%97%A8-java%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-java%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E7%BC%96%E7%A0%81%E9%A3%8E%E6%A0%BC/">java教程 java入门 java开发入门教程 java入门教程 编码风格</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.pixabay.com/photo/2020/04/02/12/28/clef-4994941_1280.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/04/03/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%9B%9B%EF%BC%89%E6%95%B0%E7%BB%84/"><img class="prev-cover" src="https://cdn.pixabay.com/photo/2014/12/15/14/38/coffee-569178_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java入门教程：（四）数组</div></div></a></div><div class="next-post pull-right"><a href="/2018/04/03/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"><img class="next-cover" src="https://cdn.pixabay.com/photo/2014/12/15/14/38/coffee-569178_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门教程：（二）基本数据类型</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description">study everyday</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%96%B0%E5%A2%9E%E3%80%81%E4%BF%AE%E6%94%B9%E3%80%81%E5%88%A0%E9%99%A4/" title="Java入门教程：（十七）新增、修改、删除">Java入门教程：（十七）新增、修改、删除</a><time datetime="2021-08-30T07:13:54.000Z" title="发表于 2021-08-30 15:13:54">2021-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8/" title="Java入门教程：（十六）创建数据库、表">Java入门教程：（十六）创建数据库、表</a><time datetime="2021-05-12T10:03:52.000Z" title="发表于 2021-05-12 18:03:52">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E5%AE%89%E8%A3%85mysql/" title="Java入门教程：（十五）安装mysql">Java入门教程：（十五）安装mysql</a><time datetime="2021-05-12T07:30:46.000Z" title="发表于 2021-05-12 15:30:46">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%B0%8F%E7%BB%93/" title="Java入门教程：（十四）小结">Java入门教程：（十四）小结</a><time datetime="2021-05-12T03:44:09.000Z" title="发表于 2021-05-12 11:44:09">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

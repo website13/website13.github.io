@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java入门教程：（九）继承 | Welcome to my Blog</title><meta name="keywords" content="java教程 java入门 java入门教程 继承"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简单粗暴的讲，你继承了你爸，你爸的电脑、汽车、手机你都可以用，而你自己又有自行车、柜子、洗衣机，你儿子又继承了你，你儿子不仅能用你的自行车、柜子、洗衣机，还能用他爷爷的电脑、汽车、手机。 java中的继承也类似，使用extends关键字。假设有A、B、C三个类，A类有a属性a方法，B类有b属性b方法、C类有c属性c方法，如果这些属性跟方法都是public的，B继承A的情况下，B可以直接使用A的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门教程：（九）继承">
+<meta property="og:url" content="http://website13.github.io/2018/11/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E4%B9%9D%EF%BC%89%E7%BB%A7%E6%89%BF/index.html">
+<meta property="og:site_name" content="Welcome to my Blog">
+<meta property="og:description" content="简单粗暴的讲，你继承了你爸，你爸的电脑、汽车、手机你都可以用，而你自己又有自行车、柜子、洗衣机，你儿子又继承了你，你儿子不仅能用你的自行车、柜子、洗衣机，还能用他爷爷的电脑、汽车、手机。 java中的继承也类似，使用extends关键字。假设有A、B、C三个类，A类有a属性a方法，B类有b属性b方法、C类有c属性c方法，如果这些属性跟方法都是public的，B继承A的情况下，B可以直接使用A的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg">
+<meta property="article:published_time" content="2018-11-30T12:09:43.000Z">
+<meta property="article:modified_time" content="2022-07-31T10:21:18.496Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java教程 java入门 java入门教程 继承">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://website13.github.io/2018/11/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E4%B9%9D%EF%BC%89%E7%BB%A7%E6%89%BF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java入门教程：（九）继承',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-31 18:21:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Welcome to my Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Welcome to my Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门教程：（九）继承</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-11-30T12:09:43.000Z" title="发表于 2018-11-30 20:09:43">2018-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-31T10:21:18.496Z" title="更新于 2022-07-31 18:21:18">2022-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java入门教程：（九）继承"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<p>简单粗暴的讲，你继承了你爸，你爸的电脑、汽车、手机你都可以用，而你自己又有自行车、柜子、洗衣机，你儿子又继承了你，你儿子不仅能用你的自行车、柜子、洗衣机，还能用他爷爷的电脑、汽车、手机。</p>
+<p>java中的继承也类似，使用extends关键字。假设有A、B、C三个类，A类有a属性a方法，B类有b属性b方法、C类有c属性c方法，如果这些属性跟方法都是public的，B继承A的情况下，B可以直接使用A的属性和方法，C继承B的情况下，C可以使用B的属性和方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义ClassA作为父类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ClassA</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;a&quot;</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> <span class="variable">aa</span> <span class="operator">=</span> <span class="string">&quot;aa&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">a</span><span class="params">()</span> &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">aa</span><span class="params">()</span> &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义ClassA作为子类继承ClassA</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassB</span> <span class="keyword">extends</span> <span class="title class_">ClassA</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="type">String</span> <span class="variable">b</span> <span class="operator">=</span> <span class="string">&quot;b&quot;</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">String</span> <span class="variable">bb</span> <span class="operator">=</span> <span class="string">&quot;bb&quot;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">b</span><span class="params">()</span> &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">bb</span><span class="params">()</span> &#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bbb</span><span class="params">()</span> &#123;</span><br><span class="line">		System.out.println(a); <span class="comment">//直接使用父类的属性</span></span><br><span class="line">		System.out.println(aa); <span class="comment">//父类的属性是私有的，使用会报错</span></span><br><span class="line">		a(); <span class="comment">//直接使用父类的方法</span></span><br><span class="line">		aa(); <span class="comment">//父类的方法是私有的，使用会报错</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下图展示了java中的继承方式</p>
+<p><img src="https://img-blog.csdnimg.cn/20181129141606471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>如上图所示，在java中一个子类只能继承一个父类，不可以同时继承多个父类。</p>
+<p>继承有什么用？其实在实际开发中基本上不会让一个类继承某个类，但是继承又无处不在。比如在API中搜Integer，可以看到这个类继承了Number类，Number类又继承了Object类。(图1)</p>
+<p><img src="https://img-blog.csdnimg.cn/20181130192548963.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70">（图1）</p>
+<p>实际上所有的类都继承了Object类，Object是所有类的父类。就例如我们上面这个代码，虽然没有写extends Object，但是默认是继承Objecrt的。</p>
+<p><img src="https://img-blog.csdnimg.cn/2018113019224634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70">（图2）</p>
+<p>如上图，ClassA中并没有左边红框的方法，但是我们却能点出来，右面的红框说明了该方法来自Object类。</p>
+<p>还有一种情况，假如父类和子类的方法名一样，我们可以在子类中通过super关键字调用父类的方法。</p>
+<p>定义两个类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ClassA</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">p</span><span class="params">()</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;我是ClassA&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ClassB</span> <span class="keyword">extends</span> <span class="title class_">ClassA</span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">p</span><span class="params">()</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;我是 ClassB&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">		p(); <span class="comment">//调用自身的方法</span></span><br><span class="line">		<span class="built_in">super</span>.p(); <span class="comment">//调用父类的方法</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="type">ClassB</span> <span class="variable">classB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassB</span>();</span><br><span class="line">		classB.test();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181130200606937.png"></p>
+<p>这种子类跟父类定义成一样的方法名的做法叫方法的重写。</p>
+<p>以上，就是本节课的内容。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java%E6%95%99%E7%A8%8B-java%E5%85%A5%E9%97%A8-java%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E7%BB%A7%E6%89%BF/">java教程 java入门 java入门教程 继承</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/01/03/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%EF%BC%89%E9%9B%86%E5%90%88/"><img class="prev-cover" src="https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java入门教程：（十）集合</div></div></a></div><div class="next-post pull-right"><a href="/2018/05/07/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%85%AB%EF%BC%89String%E3%80%81StringBuilder%E4%B8%8EAPI/"><img class="next-cover" src="https://cdn.pixabay.com/photo/2014/12/15/14/38/coffee-569178_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门教程：（八）String、StringBuilder与API</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description">study everyday</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%96%B0%E5%A2%9E%E3%80%81%E4%BF%AE%E6%94%B9%E3%80%81%E5%88%A0%E9%99%A4/" title="Java入门教程：（十七）新增、修改、删除">Java入门教程：（十七）新增、修改、删除</a><time datetime="2021-08-30T07:13:54.000Z" title="发表于 2021-08-30 15:13:54">2021-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8/" title="Java入门教程：（十六）创建数据库、表">Java入门教程：（十六）创建数据库、表</a><time datetime="2021-05-12T10:03:52.000Z" title="发表于 2021-05-12 18:03:52">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E5%AE%89%E8%A3%85mysql/" title="Java入门教程：（十五）安装mysql">Java入门教程：（十五）安装mysql</a><time datetime="2021-05-12T07:30:46.000Z" title="发表于 2021-05-12 15:30:46">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%B0%8F%E7%BB%93/" title="Java入门教程：（十四）小结">Java入门教程：（十四）小结</a><time datetime="2021-05-12T03:44:09.000Z" title="发表于 2021-05-12 11:44:09">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

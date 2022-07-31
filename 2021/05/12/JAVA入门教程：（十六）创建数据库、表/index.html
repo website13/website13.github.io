@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Java入门教程：（十六）创建数据库、表 | Welcome to my Blog</title><meta name="keywords" content="mysql教程 java教程 java入门教程 mysql建表 mysql创建数据库"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="关于mysql介绍网上一搜一大堆，这里就不再介绍了，我之后的mysql文章只讲最简单基础的用法，主要是为java程序服务的。如果有兴趣多学一点mysql的话，建议去https:&#x2F;&#x2F;www.runoob.com&#x2F;mysql&#x2F;mysql-tutorial.html中系统学习，我看了下如果拿出全部时间的话大概一两天就能学完，我也强烈简历先去看看，然后就可以直接跳过之后的关于mysql的文章了。 创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门教程：（十六）创建数据库、表">
+<meta property="og:url" content="http://website13.github.io/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Welcome to my Blog">
+<meta property="og:description" content="关于mysql介绍网上一搜一大堆，这里就不再介绍了，我之后的mysql文章只讲最简单基础的用法，主要是为java程序服务的。如果有兴趣多学一点mysql的话，建议去https:&#x2F;&#x2F;www.runoob.com&#x2F;mysql&#x2F;mysql-tutorial.html中系统学习，我看了下如果拿出全部时间的话大概一两天就能学完，我也强烈简历先去看看，然后就可以直接跳过之后的关于mysql的文章了。 创建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282_1280.jpg">
+<meta property="article:published_time" content="2021-05-12T10:03:52.000Z">
+<meta property="article:modified_time" content="2022-07-31T10:21:26.482Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="mysql教程 java教程 java入门教程 mysql建表 mysql创建数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282_1280.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://website13.github.io/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java入门教程：（十六）创建数据库、表',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-31 18:21:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Welcome to my Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282_1280.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Welcome to my Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门教程：（十六）创建数据库、表</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-12T10:03:52.000Z" title="发表于 2021-05-12 18:03:52">2021-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-31T10:21:26.482Z" title="更新于 2022-07-31 18:21:26">2022-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java入门教程：（十六）创建数据库、表"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<p>关于mysql介绍网上一搜一大堆，这里就不再介绍了，我之后的mysql文章只讲最简单基础的用法，主要是为java程序服务的。如果有兴趣多学一点mysql的话，建议去<a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-tutorial.html">https://www.runoob.com/mysql/mysql-tutorial.html</a>中系统学习，我看了下如果拿出全部时间的话大概一两天就能学完，我也强烈简历先去看看，然后就可以直接跳过之后的关于mysql的文章了。</p>
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><p>右键-新建数据库</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512162057866.png"></p>
+<p>输入库名、选择字符集和排序规则，点确定</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512162441459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>创建数据库成功</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512162828442.png"></p>
+<h1 id="新建表"><a href="#新建表" class="headerlink" title="新建表"></a>新建表</h1><p>my-表-右键-新建表</p>
+<p><img src="https://img-blog.csdnimg.cn/2021051216301541.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210512163123811.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>如上图所示，在第一个标签页“栏位”中</p>
+<p>名：字段的名字</p>
+<p>类型：字段的类型，有几十种，常用的有以下几种</p>
+<ul>
+<li>char，可以存定长的字符串</li>
+<li>varchar，可以存变长的字符串（定长和变长的区别在长度中介绍）</li>
+<li>int，可以存-2^31 (-2,147,483,648) 到 2^31 - 1 (2,147,483,647) 之间的数字</li>
+<li>datetime，可以存日期类型的数据</li>
+</ul>
+<p>长度：数据存的最大长度，对于不同的字段类型，长度表示的意义也不一样</p>
+<ul>
+<li>字段类型为char时，该长度表示存的最大长度，例如为100时，存的数据就算不超过100位，也会占用100位的存储空间</li>
+<li>字段类型为varchar时，该长度表示存的最大长度，例如为100时，数据占用的空间会根据存的数据的长度来分配，数据越短占用的空间越少</li>
+<li>字段类型为int时，该长度无意义，不管是输入0还是100都一样，因为int类型已经确定了范围了</li>
+<li>段类型为datetime时，该长度表示秒后面的小数点位数，为0时可以保存为2021-05-27 00:00:00，为3时可以保存为2021-05-27 16:48:41.000</li>
+</ul>
+<p>小数点：默认就行，不用填，没什么用</p>
+<p>不是null：默认为否，就是插入数据时可以不填，默认会插入null，表示什么也没有，连空字符串都不是，如果勾上了，查询数据时就必须填入该字段，不然会报错</p>
+<p>不是null后面还有一个空白列，点击之后会出现一把钥匙<img src="https://img-blog.csdnimg.cn/20210512165829689.png">，这个是用来设置主键的，把一个字段设置为主键相当于这个字段是这个表中的唯一数据，就是不重复的数据，一般会用一个无意义的字段表示，如id</p>
+<p>下方区域：选择不同的字段类型会加载不同的内容，这里简单说几种</p>
+<p>int：主要关注自动递增，如果勾上了，则插入数据时不用插入id字段，数据库会每次加1的插入到表中，其他选项不用理会</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512170427192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>varchar：默认中有三个选项，当插入数据时不插入该字段时，数据库会根据这项自动插入数据：选择第一个时可以编辑这个输入框，插入自定义的数据；选择第二个时会插入null（非字符串null，就是表示什么都没）；选择第三个时会插入空字符串。其他的选项一般不用管，保存表时会字段填入默认值。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512170709937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>不管是什么字段类型，下面都会有注释输入框，就是填入该字段代表的意义，这个虽然可以不填，但是要养成一个良好的习惯就必须填。这里我要说一下，一个字段要选择什么样的类型没什么规定，主要看工作中公司怎么要求的，例如A公司要求年龄用int，性别用char，时间用datetime，B公司要求所有字段都用varchar。我在接下来的教程里会把字段类型全部设置成varchar，这点不用纠结为啥了。</p>
+<p>接下来，我建一个用户表，搞一些用户的常用字段，字段名的定义一般用英文或者拼音全拼，可以用下划线分割，怎么定义也得看公司怎么要求的，有些公司说用拼音不专业，就非得用英文，这就很扯蛋了，只要通俗易懂就行了，用拼音需要避免用首字母，例如用户名称搞了个yhmc，鬼知道这个字段是啥意思，只要不大小写混用，不英文拼音混用就行了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512174059960.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<h3 id="注意我以后所说的“保存”都不是点界面能上的保存按钮，都是用快捷键Ctrl-S操作的，这个与直接点击保存按钮效果是相同的，只是更方便"><a href="#注意我以后所说的“保存”都不是点界面能上的保存按钮，都是用快捷键Ctrl-S操作的，这个与直接点击保存按钮效果是相同的，只是更方便" class="headerlink" title="注意我以后所说的“保存”都不是点界面能上的保存按钮，都是用快捷键Ctrl+S操作的，这个与直接点击保存按钮效果是相同的，只是更方便"></a>注意我以后所说的“保存”都不是点界面能上的保存按钮，都是用快捷键Ctrl+S操作的，这个与直接点击保存按钮效果是相同的，只是更方便</h3><p>如上图，保存，然后弹出一个输入表名的框，输入完点确定就行了，如果点确定报错，检查下是不是类型输入错了或者别的原因，有时候建表时明明什么都对的保存时也会报错，这就是Navicat的bug了，关掉重新建表或者先建一个字段的表保存完再修改表结构加字段也行。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512174539924.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210512175248503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>你可以双击打开表之后手动新增、修改、删除数据</p>
+<p><img src="https://img-blog.csdnimg.cn/20210512180008518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hqZ3pq,size_16,color_FFFFFF,t_70"></p>
+<p>以上菜单里的选项建议都用一下，试试功能，下一节讲表的增删改查。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql%E6%95%99%E7%A8%8B-java%E6%95%99%E7%A8%8B-java%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-mysql%E5%BB%BA%E8%A1%A8-mysql%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93/">mysql教程 java教程 java入门教程 mysql建表 mysql创建数据库</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.pixabay.com/photo/2019/09/17/18/48/computer-4484282_1280.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/08/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%96%B0%E5%A2%9E%E3%80%81%E4%BF%AE%E6%94%B9%E3%80%81%E5%88%A0%E9%99%A4/"><img class="prev-cover" src="https://cdn.pixabay.com/photo/2014/12/15/14/38/coffee-569178_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java入门教程：（十七）新增、修改、删除</div></div></a></div><div class="next-post pull-right"><a href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E5%AE%89%E8%A3%85mysql/"><img class="next-cover" src="https://cdn.pixabay.com/photo/2015/05/31/10/55/man-791049_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门教程：（十五）安装mysql</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description">study everyday</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">创建数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">新建表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E6%88%91%E4%BB%A5%E5%90%8E%E6%89%80%E8%AF%B4%E7%9A%84%E2%80%9C%E4%BF%9D%E5%AD%98%E2%80%9D%E9%83%BD%E4%B8%8D%E6%98%AF%E7%82%B9%E7%95%8C%E9%9D%A2%E8%83%BD%E4%B8%8A%E7%9A%84%E4%BF%9D%E5%AD%98%E6%8C%89%E9%92%AE%EF%BC%8C%E9%83%BD%E6%98%AF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AECtrl-S%E6%93%8D%E4%BD%9C%E7%9A%84%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B8%8E%E7%9B%B4%E6%8E%A5%E7%82%B9%E5%87%BB%E4%BF%9D%E5%AD%98%E6%8C%89%E9%92%AE%E6%95%88%E6%9E%9C%E6%98%AF%E7%9B%B8%E5%90%8C%E7%9A%84%EF%BC%8C%E5%8F%AA%E6%98%AF%E6%9B%B4%E6%96%B9%E4%BE%BF"><span class="toc-number">2.0.1.</span> <span class="toc-text">注意我以后所说的“保存”都不是点界面能上的保存按钮，都是用快捷键Ctrl+S操作的，这个与直接点击保存按钮效果是相同的，只是更方便</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/30/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89%E6%96%B0%E5%A2%9E%E3%80%81%E4%BF%AE%E6%94%B9%E3%80%81%E5%88%A0%E9%99%A4/" title="Java入门教程：（十七）新增、修改、删除">Java入门教程：（十七）新增、修改、删除</a><time datetime="2021-08-30T07:13:54.000Z" title="发表于 2021-08-30 15:13:54">2021-08-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%E8%A1%A8/" title="Java入门教程：（十六）创建数据库、表">Java入门教程：（十六）创建数据库、表</a><time datetime="2021-05-12T10:03:52.000Z" title="发表于 2021-05-12 18:03:52">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89%E5%AE%89%E8%A3%85mysql/" title="Java入门教程：（十五）安装mysql">Java入门教程：（十五）安装mysql</a><time datetime="2021-05-12T07:30:46.000Z" title="发表于 2021-05-12 15:30:46">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/12/JAVA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89%E5%B0%8F%E7%BB%93/" title="Java入门教程：（十四）小结">Java入门教程：（十四）小结</a><time datetime="2021-05-12T03:44:09.000Z" title="发表于 2021-05-12 11:44:09">2021-05-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
