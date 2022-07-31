@@ -1,369 +1,263 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-31 17:37:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-</head>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/31/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/31/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-31 15:25:19" itemprop="dateCreated datePublished" datetime="2022-07-31T15:25:19+08:00">2022-07-31</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-  </nav>
-</div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+对于array、slice、map、struct等类型，想要比较两个值是否相等，不能使用==，处理起来十分麻烦，在对效率没有太大要求的情况下，reflect包中的DeepEqual函数完美的解决了比较问题。
+函数签名：
+1func DeepEqual(a1, a2 interface&#123;&#125;) bool
 
+文档中对该函数的说明：DeepEqual函数用来判断两个值是否深度一致：除了类型相同；在可以时（主要是基本类型）会使用==；但还会比较array、slice的成员，map的键值对，结构体字段进行深入比对。map的键值对，对键只使用==，但值会继续往深层比对。DeepEqual函数可以正确处理循环的类型。函数类型只有都会nil时才相等；空切片不等于nil切片；还会考虑array、slice的长度、map键值对数。
+示例：
+1234567func main() &#123;	m1 := map[int]interface&#123;&#125;&#123;1: []int&#123;1, 2, 3&#125;, 2: 3, 3: &quot;a&quot;&#125; ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作">golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-26T05:43:06.000Z" title="发表于 2020-08-26 13:43:06">2020-08-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
-      </div>
+package sync1import &quot;sync&quot;
 
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+sync包提供了基本的同步基元，如互斥锁。除了Once和WaitGroup类型，大部分都是适用于低水平程序线程，高水平的同步使用channel通信更好一些。
+注意：本包的类型的值不应被拷贝。
+sync.WaitGroup123type WaitGroup struct &#123;    // 包含隐藏或非导出字段&#125;
 
+WaitGroup用于等待一组线程的结束。父线程调用Add方法来设定应等待的线程的数量。每个被等待的线程在结束时应调用Done方法。同时，主线程里可以调用Wait方法阻塞至所有线程结束。WaitGroup对象内部有一个计数器，最初从0开始，它有三个方法：Add, Done, Wait 用来控制计数器的值：
 
-      </div>
-    </main>
+func (wg *WaitGroup) Add(delta int)：Add方法向内部计数加上delta，delta可以是负数；如果内部计数器变为0，Wait方法阻塞等待的所有线程都会释放，如果计数器小于0，方法panic；
+func (wg *WaitGroup) Done ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（23）——并发之channel、select多路复用"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用">golang基础小记（23）——并发之channel、select多路复用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-19T09:08:09.000Z" title="发表于 2020-08-19 17:08:09">2020-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+channel(通道)goroutine和channel是 Go 语言秉承的 CSP（Communicating Sequential Process）并发模式的重要实现基础。该并发模式提倡通过通信共享内存而不是通过共享内存实现通信。channel可以实现在多个goroutine之间进行通信，它是一种特殊的类型，遵循先入先出规则。每一个channel只能传递指定元素类型的数据。
+声明channelchannel是引用类型，声明channel的格式如下：
+1var 变量名 chan 元素类型
 
-        
+示例：
+1var ch chan bool // 声明一个传递布尔值的通道
 
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
+声明得到的通道的值是nil。
+创建channel通道使用make函数初始化，其格式如下：
+1make(chan 元素类型, [缓冲大小])
 
-        
+示例：
+1ch1 := make(chan int) // 未设置缓冲大小，默认是0，所以ch1是无缓冲通道
 
+channel操作使用之前创建的ch1。
 
+发送：ch1 &lt;- 10，把10发送到ch1中；
+接收：&lt;-ch1，值可以用变量接收；
+关闭：close(ch ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（4）——math/rand包：生成随机数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数">golang包的日常（4）——math/rand包：生成随机数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-17T10:21:19.000Z" title="发表于 2020-08-17 18:21:19">2020-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+package rand1import &quot;math/rand&quot;
 
+rand包实现了伪随机数生成器。
+常用随机数生成方法这里只介绍自己用到过的部分，更多函数&#x2F;方法请参考标准库文档中文版
+rand.Seed：设置随机数种子1func Seed(seed int64)
 
+使用给定的seed将默认资源初始化到一个确定的状态；如未调用Seed，默认资源的行为就好像调用了Seed(1)。如果程序每次运行，随机数种子都相同，那么使用随机数函数得到的随机数都是一样的，想让程序每次运行得到的随机数都不同，就需要让每次的随机数种子不相同。
+示例：
+123456func main() &#123;	rand.Seed(time.Now().UnixNano()) // 取纳秒时间戳，可以保证每次的随机数种子都不同	for i := 0; i &lt; 5; i++ &#123;		fmt.Println(rand.Intn(1000)) // Intn(n)返回一个取值范围在[0,n)的伪随机int值	&#125;&#125;
 
+第一次输出：
+123453577621822 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup">golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-17T09:30:54.000Z" title="发表于 2020-08-17 17:30:54">2020-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+goroutineGo语言的并发通过goroutine实现，其概念类似于线程，属于用户态的线程，我们可以创建很多个goroutine并发工作。goroutine是由Go的运行时(runtime)来调度和管理的。
+使用方式启动goroutine只需要在调用的函数前加上go关键字，函数可以是普通函数也可以是匿名函数。在程序启动时，Go程序会为main()函数创建一个默认的goroutine。它会在main()函数返回的时候结束，此时所有在main()函数中启动的goroutine不管有没有运行完都会一同结束。如下例：
+12345678func f1() &#123;	fmt.Println(&quot;我是f1&quot;)&#125;func main() &#123;	go f1()	fmt.Println(&quot;我是main&quot;)&#125;
 
-      </div>
-    </footer>
-  </div>
+输出：
+1我是main
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+可以发现，函数f1并没有打印结果，这是因为goroutine启动需要一定的时间，而例子中的main()函数早就结束了，在其中启动的goroutine也随之结束。再看下例：
+123456789func ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" title="golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" title="golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换">golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-16T09:30:33.000Z" title="发表于 2020-08-16 17:30:33">2020-08-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
-<script src="/js/utils.js"></script>
+package strconv1import &quot;strconv&quot;
 
-<script src="/js/motion.js"></script>
+strconv包实现了基本数据类型和其字符串表示的相互转换。
+下面介绍比较常用的转换函数，更多内容参考标准库文档中文版
+string与int互转ParseInt：字符串转int641func ParseInt(s string, base int, bitSize int) (i int64, err error)
 
+返回字符串表示的整数值，接受正负号。base指定进制（2到36），如果base为0，则会从字符串前置判断，&quot;0x&quot;是16进制，&quot;0&quot;是8进制，否则是10进制；bitSize指定结果必须能无溢出赋值的整数类型，0、8、16、32、64 分别代表 int、int8、int16、int32、int64；返回的err是*NumErr类型的，如果语法有误，err.Error = ErrSyntax；如果结果超出类型范围err.Error = ErrRange。
+示例：
+12345678var a int32s := &quot;1111&quot;v, ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/" title="golang基础小记（21）——反射"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（21）——反射"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/" title="golang基础小记（21）——反射">golang基础小记（21）——反射</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-14T04:21:14.000Z" title="发表于 2020-08-14 12:21:14">2020-08-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
-<script src="/js/schemes/muse.js"></script>
+反射是指在程序运行期间对程序本身进行访问和修改的能力。反射的应用：当我们用空接口接收不同类型的结构体时，很难用类型断言去判断类型（因为自定义类型可以随意取名），这时就可以用到反射，来来得到结构体的类型，并进一步得到字段和对应值。实际应用：json等数据解析（比如结构体博客中JSON序列化与反序列化）&#x2F;ORM等工具注意：
 
+反射引起的panic在编译时不会产生，只有在运行时才能发现，所以代码比较脆弱
+应用反射的代码通常难以理解
+反射的性能更低所以在写代码时要尽量避免使用反射，除非只能使用反射！（这也是我不想写细致内容的借口。。。以后用到再说。。。）
 
-<script src="/js/next-boot.js"></script>
+reflect包提供反射相关功能。
+反射细致内容可以参考下面三个文档：
 
+这篇博客对于反射的各种函数和使用方式讲的比较细致
+这篇文章从应用出发循序渐进，更容易理解反射
+标准库文档中文版，实际写代码时，对于各种方法&#x2F;函数还是查文档更清晰一些，文档还推荐了一篇英文版的反射介绍
 
+一些可能常用的方法注意：所有值都默认用静态类型interface{}保存；只有用法，没有理由，具体可以查看参考中的标准库中文文档，或者代码实践。 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="golang基础小记（20）——将格式化字符串作为函数参数"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（20）——将格式化字符串作为函数参数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/" title="golang基础小记（20）——将格式化字符串作为函数参数">golang基础小记（20）——将格式化字符串作为函数参数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-10T09:22:01.000Z" title="发表于 2020-08-10 17:22:01">2020-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+直接上简单实例：
+123456789101112131415package mainimport &quot;fmt&quot;func formatAsArgs(format string, a ...interface&#123;&#125;) &#123;	s := fmt.Sprintf(format, a...)	fmt.Println(s)&#125;func main() &#123;	name := &quot;小明&quot;	id := 10086	formatAsArgs(&quot;name:%s, id:%d&quot;, name, id) // name:小明, id:10086	formatAsArgs(&quot;name, id&quot;) // name, id&#125;
 
-  
+参数a ...interface&#123;&#125;使得函数可以接收0个及以上的参数，使得函数既能接收普通字符串，也能接收格式化字符串。
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/" title="golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/" title="golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号">golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-10T07:45:16.000Z" title="发表于 2020-08-10 15:45:16">2020-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+runtime.Caller函数签名：
+1func Caller(skip int) (pc uintptr, file string, line int, ok bool)
 
+Caller报告当前go程调用栈所执行的函数的文件和行号信息。实参skip为上溯的栈帧数，0表示Caller的调用者（Caller所在的调用栈）。函数的返回值为调用栈标识符、带路径的完整文件名、该调用在文件中的行号。如果无法获得信息，ok会被设为false。
+根据pc获取函数名根据返回的调用栈标识符pc，我们可以获取对应的函数名。需要用到一个函数和一个方法，签名如下：
+123func FuncForPC(pc uintptr) *Funcfunc (*Func) Name
 
+FuncForPC返回一个表示调用栈标识符pc对应的调用栈的*Func；如果该调用栈标识符没有对应的调用栈，函数会返回nil。每一个调用栈必然是对某个函数的调用。Name返回该调用栈所调用的函数的名字。
+实例1234567891011121314151617181920212223package mainimport (	&quot;f ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/" title="golang包的日常（2）——log包"><img class="post_bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（2）——log包"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/" title="golang包的日常（2）——log包">golang包的日常（2）——log包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-09T07:28:48.000Z" title="发表于 2020-08-09 15:28:48">2020-08-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Golang/">Golang</a></span></div><div class="content">
 
+普通使用log包定义了Logger类型，该类型提供了一些格式化输出的方法。log包中预定义了一个标准logger对象std，使我们可以直接调用函数来打印日志，默认是标准错误输出（Stderr），打印到终端界面。当然也可以自定义创建logger对象，控制std所调用的所有函数在内部都是调用了同名的logger类型的方法。函数包括：
 
+Print()、Printf()、Println()
+Fatal()、Fatalf()、Fatalln()：触发fatal，写入日志信息后调用os.Exit(1)，程序直接退出，不会调用defer
+Panic、Panicf、Panicln：触发panic
 
+示例：
+123456log.Print(&quot;Print\n&quot;)v := &quot;Printf&quot;log.Printf(&quot;%s\n&quot;, v)log.Println(&quot;Println&quot;)log.Fatalln(&quot;触发fatal&quot;)log.Panicln(&quot;触发panic&quot;)
 
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+输出：
+123420 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"/></a><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"/></a><div class="content"><a class="title" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作">golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</a><time datetime="2020-08-26T05:43:06.000Z" title="发表于 2020-08-26 13:43:06">2020-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（23）——并发之channel、select多路复用"/></a><div class="content"><a class="title" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用">golang基础小记（23）——并发之channel、select多路复用</a><time datetime="2020-08-19T09:08:09.000Z" title="发表于 2020-08-19 17:08:09">2020-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（4）——math/rand包：生成随机数"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数">golang包的日常（4）——math/rand包：生成随机数</a><time datetime="2020-08-17T10:21:19.000Z" title="发表于 2020-08-17 18:21:19">2020-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup">golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup</a><time datetime="2020-08-17T09:30:54.000Z" title="发表于 2020-08-17 17:30:54">2020-08-17</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Golang/"><span class="card-category-list-name">Golang</span><span class="card-category-list-count">29</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/go-golang/" style="font-size: 1.5em; color: #99a9bf">go golang</a> <a href="/tags/go-golang-printf/" style="font-size: 1.1em; color: #999">go golang printf</a> <a href="/tags/go-golang-random/" style="font-size: 1.1em; color: #999">go golang random</a> <a href="/tags/golang/" style="font-size: 1.37em; color: #99a4b2">golang</a> <a href="/tags/golang-go/" style="font-size: 1.5em; color: #99a9bf">golang go</a> <a href="/tags/golang-go-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 1.1em; color: #999">golang go 多线程</a> <a href="/tags/golang-go-%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.23em; color: #999ea6">golang go 字符串</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2-go-golang/" style="font-size: 1.1em; color: #999">字符串 go golang</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">29</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-07-31T09:37:44.027Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

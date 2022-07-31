@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>golang基础小记（21）——反射 | Hexo</title><meta name="keywords" content="go golang"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="反射是指在程序运行期间对程序本身进行访问和修改的能力。反射的应用：当我们用空接口接收不同类型的结构体时，很难用类型断言去判断类型（因为自定义类型可以随意取名），这时就可以用到反射，来来得到结构体的类型，并进一步得到字段和对应值。实际应用：json等数据解析（比如结构体博客中JSON序列化与反序列化）&#x2F;ORM等工具注意：  反射引起的panic在编译时不会产生，只有在运行时才能发现，所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang基础小记（21）——反射">
+<meta property="og:url" content="http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="反射是指在程序运行期间对程序本身进行访问和修改的能力。反射的应用：当我们用空接口接收不同类型的结构体时，很难用类型断言去判断类型（因为自定义类型可以随意取名），这时就可以用到反射，来来得到结构体的类型，并进一步得到字段和对应值。实际应用：json等数据解析（比如结构体博客中JSON序列化与反序列化）&#x2F;ORM等工具注意：  反射引起的panic在编译时不会产生，只有在运行时才能发现，所">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2020-08-14T04:21:14.000Z">
+<meta property="article:modified_time" content="2022-07-31T09:22:33.484Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="go golang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'golang基础小记（21）——反射',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-31 17:22:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">golang基础小记（21）——反射</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-14T04:21:14.000Z" title="发表于 2020-08-14 12:21:14">2020-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-31T09:22:33.484Z" title="更新于 2022-07-31 17:22:33">2022-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Golang/">Golang</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="golang基础小记（21）——反射"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<p>反射是指在程序运行期间对程序本身进行访问和修改的能力。<br>反射的应用：当我们用空接口接收不同类型的结构体时，很难用类型断言去判断类型（因为自定义类型可以随意取名），这时就可以用到反射，来来得到结构体的类型，并进一步得到字段和对应值。<br>实际应用：<code>json</code>等数据解析（比如结构体博客中JSON序列化与反序列化）&#x2F;ORM等工具<br>注意：</p>
+<ul>
+<li>反射引起的<code>panic</code>在编译时不会产生，只有在运行时才能发现，所以代码比较脆弱</li>
+<li>应用反射的代码通常难以理解</li>
+<li>反射的性能更低<br>所以在写代码时要尽量避免使用反射，除非只能使用反射！（这也是我不想写细致内容的借口。。。以后用到再说。。。）</li>
+</ul>
+<p><code>reflect</code>包提供反射相关功能。</p>
+<p>反射细致内容可以参考下面三个文档：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.liwenzhou.com/posts/Go/13_reflect/">这篇博客</a>对于反射的各种函数和使用方式讲的比较细致</li>
+<li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/154883.htm">这篇文章</a>从应用出发循序渐进，更容易理解反射</li>
+<li><a target="_blank" rel="noopener" href="https://studygolang.com/pkgdoc">标准库文档中文版</a>，实际写代码时，对于各种方法&#x2F;函数还是查文档更清晰一些，文档还推荐了一篇英文版的反射介绍</li>
+</ol>
+<h2 id="一些可能常用的方法"><a href="#一些可能常用的方法" class="headerlink" title="一些可能常用的方法"></a>一些可能常用的方法</h2><p>注意：所有值都默认用静态类型interface{}保存；只有用法，没有理由，具体可以查看参考中的标准库中文文档，或者代码实践。<br>该空接口类型变量名为<code>data</code></p>
+<h3 id="判断data底层类型"><a href="#判断data底层类型" class="headerlink" title="判断data底层类型"></a>判断data底层类型</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断data的底层类型是否是指针类型</span></span><br><span class="line"><span class="keyword">if</span> reflect.TypeOf(data).Kind() != reflect.Ptr &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;data 不是指针类型&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Kind</code>方法的返回值是<code>Kind</code>类型，<code>reflect</code>包中定义了很多<code>Kind</code>类型常量代表各种底层类型，<code>Ptr</code>就是其中一种。</p>
+<h3 id="获得指针指向的值的底层类型"><a href="#获得指针指向的值的底层类型" class="headerlink" title="获得指针指向的值的底层类型"></a>获得指针指向的值的底层类型</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reflect.TypeOf(data).Elem().Kind()</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Elem</code>方法返回该类型的元素类型，如果该类型的<code>Kind</code>不是Array、Chan、Map(Map类型的元素是值)、Ptr或Slice，会<code>panic</code>。</p>
+<h3 id="获得结构体字段数量"><a href="#获得结构体字段数量" class="headerlink" title="获得结构体字段数量"></a>获得结构体字段数量</h3><p>此时<code>data</code>的底层类型是结构体。如果底层类型是指针，可以使用前面的<code>Elem</code>方法得到其值类型。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t := reflect.TypeOf(data)</span><br><span class="line">num := t.NumField() <span class="comment">// 此时num的值就是结构体字段数量</span></span><br></pre></td></tr></table></figure>
+
+<p>其中<code>NumField</code>方法返回struct类型的字段数（匿名字段算作一个字段），如非结构体类型将<code>panic</code>。</p>
+<h3 id="获得结构体第i个字段的类型"><a href="#获得结构体第i个字段的类型" class="headerlink" title="获得结构体第i个字段的类型"></a>获得结构体第i个字段的类型</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">t := reflect.TypeOf(data)</span><br><span class="line">field := t.Field(<span class="number">0</span>) <span class="comment">// 返回的field是reflect.StructField类型</span></span><br><span class="line">fieldName := field.Name <span class="comment">// 得到字段名</span></span><br><span class="line">fieldType := field.Type <span class="comment">// 得到字段类型，返回值类型是reflect.Type</span></span><br><span class="line">fieldTag := field.Tag <span class="comment">// 得到字段的Tag，返回值类型是reflect.StructTag，该类型有Get(string) string方法，可以获得Tag中键对应的值</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Field</code>方法返回<code>struct</code>类型的第<code>i</code>个字段的类型，如非结构体或者<code>i</code>不在<code>[0, NumField())</code>内将会<code>panic</code>。<br><code>Field</code>方法一般和<code>NumField</code>方法在循环中使用。</p>
+<h3 id="根据字段名得到结构体的字段类型"><a href="#根据字段名得到结构体的字段类型" class="headerlink" title="根据字段名得到结构体的字段类型"></a>根据字段名得到结构体的字段类型</h3><p>假设<code>structName</code>是字段名</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">t := reflect.TypeOf(data)</span><br><span class="line">structField, ok := t.FieldByName(structName)</span><br><span class="line"><span class="keyword">if</span> !ok &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;字段名不存在&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">structObjType := structField.Type <span class="comment">// 得到字段类型</span></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/">http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/go-golang/">go golang</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">golang基础小记（20）——将格式化字符串作为函数参数</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/" title="golang基础小记（13）——自定义类型和类型别名(type)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-29</div><div class="title">golang基础小记（13）——自定义类型和类型别名(type)</div></div></a></div><div><a href="/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/" title="golang基础小记（12）——defer"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">golang基础小记（12）——defer</div></div></a></div><div><a href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/" title="golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-10</div><div class="title">golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号</div></div></a></div><div><a href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-28</div><div class="title">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</div></div></a></div><div><a href="/2020/06/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94if%E3%80%81for%E3%80%81for%20range%E3%80%81switch/" title="golang基础小记（4）——if、for、for range、switch"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-04</div><div class="title">golang基础小记（4）——if、for、for range、switch</div></div></a></div><div><a href="/2020/06/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84go%E5%91%BD%E4%BB%A4/" title="golang基础小记（5）——最基本的go命令"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-14</div><div class="title">golang基础小记（5）——最基本的go命令</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一些可能常用的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%ADdata%E5%BA%95%E5%B1%82%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">判断data底层类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E7%9A%84%E5%80%BC%E7%9A%84%E5%BA%95%E5%B1%82%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">获得指针指向的值的底层类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E7%BB%93%E6%9E%84%E4%BD%93%E5%AD%97%E6%AE%B5%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">获得结构体字段数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E7%BB%93%E6%9E%84%E4%BD%93%E7%AC%ACi%E4%B8%AA%E5%AD%97%E6%AE%B5%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">获得结构体第i个字段的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%AD%97%E6%AE%B5%E5%90%8D%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">根据字段名得到结构体的字段类型</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"/></a><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"/></a><div class="content"><a class="title" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作">golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</a><time datetime="2020-08-26T05:43:06.000Z" title="发表于 2020-08-26 13:43:06">2020-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（23）——并发之channel、select多路复用"/></a><div class="content"><a class="title" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用">golang基础小记（23）——并发之channel、select多路复用</a><time datetime="2020-08-19T09:08:09.000Z" title="发表于 2020-08-19 17:08:09">2020-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（4）——math/rand包：生成随机数"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数">golang包的日常（4）——math/rand包：生成随机数</a><time datetime="2020-08-17T10:21:19.000Z" title="发表于 2020-08-17 18:21:19">2020-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup">golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup</a><time datetime="2020-08-17T09:30:54.000Z" title="发表于 2020-08-17 17:30:54">2020-08-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作 | Hexo</title><meta name="keywords" content="go golang"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="package sync1import &quot;sync&quot;  sync包提供了基本的同步基元，如互斥锁。除了Once和WaitGroup类型，大部分都是适用于低水平程序线程，高水平的同步使用channel通信更好一些。 注意：本包的类型的值不应被拷贝。 sync.WaitGroup123type WaitGroup struct &amp;#123;    &#x2F;&#x2F; 包含隐藏或非导出字段&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang包的日常（5）——sync包：并发同步；sync&#x2F;atomic包：原子级内存操作">
+<meta property="og:url" content="http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="package sync1import &quot;sync&quot;  sync包提供了基本的同步基元，如互斥锁。除了Once和WaitGroup类型，大部分都是适用于低水平程序线程，高水平的同步使用channel通信更好一些。 注意：本包的类型的值不应被拷贝。 sync.WaitGroup123type WaitGroup struct &amp;#123;    &#x2F;&#x2F; 包含隐藏或非导出字段&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2020-08-26T05:43:06.000Z">
+<meta property="article:modified_time" content="2022-07-31T09:22:26.860Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="go golang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-31 17:22:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-26T05:43:06.000Z" title="发表于 2020-08-26 13:43:06">2020-08-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-31T09:22:26.860Z" title="更新于 2022-07-31 17:22:26">2022-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Golang/">Golang</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
+
+<h2 id="package-sync"><a href="#package-sync" class="headerlink" title="package sync"></a>package sync</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;sync&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>sync</code>包提供了基本的同步基元，如互斥锁。除了<code>Once</code>和<code>WaitGroup</code>类型，大部分都是适用于低水平程序线程，高水平的同步使用<code>channel</code>通信更好一些。</p>
+<p>注意：本包的类型的值不应被拷贝。</p>
+<h3 id="sync-WaitGroup"><a href="#sync-WaitGroup" class="headerlink" title="sync.WaitGroup"></a>sync.WaitGroup</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> WaitGroup <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// 包含隐藏或非导出字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>WaitGroup</code>用于等待一组线程的结束。父线程调用<code>Add</code>方法来设定应等待的线程的数量。每个被等待的线程在结束时应调用<code>Done</code>方法。同时，主线程里可以调用<code>Wait</code>方法阻塞至所有线程结束。<br><code>WaitGroup</code>对象内部有一个计数器，最初从<code>0</code>开始，它有三个方法：<code>Add</code>, <code>Done</code>, <code>Wait</code> 用来控制计数器的值：</p>
+<ul>
+<li><code>func (wg *WaitGroup) Add(delta int)</code>：<code>Add</code>方法向内部计数加上<code>delta</code>，<code>delta</code>可以是负数；如果内部计数器变为<code>0</code>，<code>Wait</code>方法阻塞等待的所有线程都会释放，如果计数器小于<code>0</code>，方法<code>panic</code>；</li>
+<li><code>func (wg *WaitGroup) Done()</code>：<code>Done</code>方法使<code>WaitGroup</code>计数器的值减<code>1</code>，应在线程的最后执行；</li>
+<li><code>func (wg *WaitGroup) Wait()</code>：<code>Wait</code>方法阻塞直到<code>WaitGroup</code>计数器减为<code>0</code>。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">(wg *sync.WaitGroup)</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> wg.Done()</span><br><span class="line">	time.Sleep(time.Second)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;我是f\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg := sync.WaitGroup&#123;&#125;</span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> f(&amp;wg)</span><br><span class="line">	fmt.Println(<span class="string">&quot;我是main&quot;</span>)</span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例中<code>WaitGroup</code>对象可以阻塞<code>main</code>函数，直到所有<code>goroutine</code>都运行完毕。<br><code>WaitGroup</code>对象是结构体类型，传参时需要使用地址，否则进程会死锁；也可以直接声明全局变量。</p>
+<h3 id="sync-Mutex：互斥锁"><a href="#sync-Mutex：互斥锁" class="headerlink" title="sync.Mutex：互斥锁"></a>sync.Mutex：互斥锁</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Mutex <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// 包含隐藏或非导出字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Mutex</code>是一个互斥锁，可以创建为其他结构体的字段；零值为解锁状态。<code>Mutex</code>类型的锁和线程无关，可以由不同的线程加锁和解锁。</p>
+<p><code>Mutex</code>对象有两个方法：</p>
+<ul>
+<li><code>func (m *Mutex) Lock()</code>：<code>Lock</code>方法锁住<code>m</code>，如果<code>m</code>已经加锁，则阻塞直到<code>m</code>解锁；</li>
+<li><code>func (m *Mutex) Unlock()</code>：<code>Unlock</code>方法解锁<code>m</code>，如果<code>m</code>未加锁会导致运行时错误。锁和线程无关，可以由不同的线程加锁和解锁。</li>
+</ul>
+<p>互斥锁是一种常用的控制共享资源访问的方法，它能够保证同时只有一个<code>goroutine</code>可以访问共享资源。</p>
+<p>先举一个不加互斥锁的例子：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="type">int64</span></span><br><span class="line"><span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">5000</span>; i++ &#123;</span><br><span class="line">		x = x + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	wg.Done()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg.Add(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">go</span> add()</span><br><span class="line">	<span class="keyword">go</span> add()</span><br><span class="line">	wg.Wait()</span><br><span class="line">	fmt.Println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行后会发现输出不是10000，而且无法预测。这是因为两个<code>goroutine</code>可能同时取到<code>x</code>，最后写入时相当于只进行了一次操作，导致结果出错。<br>对共享资源有修改操作时，可以使用互斥锁。在上例中加入互斥锁：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="type">int64</span></span><br><span class="line"><span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line"><span class="keyword">var</span> lock sync.Mutex</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">5000</span>; i++ &#123;</span><br><span class="line">		lock.Lock()   <span class="comment">// 在访问共享资源前上锁</span></span><br><span class="line">		x = x + <span class="number">1</span>     <span class="comment">// 上锁后其它goroutine无法访问x</span></span><br><span class="line">		lock.Unlock() <span class="comment">// 访问完就解锁</span></span><br><span class="line">	&#125;</span><br><span class="line">	wg.Done()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	wg.Add(<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">go</span> add()</span><br><span class="line">	<span class="keyword">go</span> add()</span><br><span class="line">	wg.Wait()</span><br><span class="line">	fmt.Println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用互斥锁后输出正确结果10000。<br><code>Mutex</code>对象是结构体类型，如果不使用全局变量，那么传参时需要使用地址。</p>
+<h3 id="sync-RWMutex：读写互斥锁"><a href="#sync-RWMutex：读写互斥锁" class="headerlink" title="sync.RWMutex：读写互斥锁"></a>sync.RWMutex：读写互斥锁</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> RWMutex <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// 包含隐藏或非导出字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>RWMutex</code>是读写互斥锁。该锁可以被同时多个读取者持有或唯一个写入者持有。<code>RWMutex</code>可以创建为其他结构体的字段；零值为解锁状态。<code>RWMutex</code>类型的锁也和线程无关，可以由不同的线程加读取锁&#x2F;写入锁和解读取锁&#x2F;写入锁。<br>当一个<code>goroutine</code>获取读取锁之后，其他的<code>goroutine</code>如果是获取读取锁会继续获得锁，如果是获取写入锁就会等待；当一个<code>goroutine</code>获取写入锁之后，其他的<code>goroutine</code>无论是获取读取锁还是写入锁都会等待。</p>
+<p><code>RWMutex</code>对象有 5 个方法：</p>
+<ul>
+<li><code>func (rw *RWMutex) Lock()</code>：<code>Lock</code>方法将<code>rw</code>锁定为写入状态，禁止其他线程读取或者写入；</li>
+<li><code>func (rw *RWMutex) Unlock()</code>：<code>Unlock</code>方法解除<code>rw</code>的写入锁状态，如果<code>rw</code>未加写入锁会导致运行时错误；</li>
+<li><code>func (rw *RWMutex) RLock()</code>：<code>RLock</code>方法将<code>rw</code>锁定为读取状态，禁止其他线程写入，但不禁止读取；</li>
+<li><code>func (rw *RWMutex) RUnlock()</code>：<code>Runlock</code>方法解除<code>rw</code>的读取锁状态，如果<code>rw</code>未加读取锁会导致运行时错误；</li>
+<li><code>func (rw *RWMutex) RLocker() Locker</code>：<code>Rlocker</code>方法返回一个互斥锁，通过调用<code>rw.Rlock</code>和<code>rw.Runlock</code>实现了<code>Locker</code>接口（该接口包含<code>Lock</code>和<code>Unlock</code>两个方法）。</li>
+</ul>
+<p>读写互斥锁的使用方式和互斥锁相同。对于<strong>读多写少</strong>的场景，如果使用互斥锁，那么共享资源始终只能被一个<code>goroutine</code>访问，而读写互斥锁可以让多个只读取共享资源的<code>goroutine</code>同时访问共享资源，这在读多写少场景中能大大节省时间。</p>
+<h3 id="sync-Once：保证函数只执行一次"><a href="#sync-Once：保证函数只执行一次" class="headerlink" title="sync.Once：保证函数只执行一次"></a>sync.Once：保证函数只执行一次</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Once <span class="keyword">struct</span> &#123;</span><br><span class="line">    done <span class="type">uint32</span> <span class="comment">// 表示函数是否已执行</span></span><br><span class="line">	m    Mutex  <span class="comment">// 执行函数时需要上锁，保证只执行一次</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Once</code>是只执行一次动作的对象。只有一个方法<code>Do</code>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span></span> Do(f <span class="function"><span class="keyword">func</span><span class="params">()</span></span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>Do</code>方法当且仅当第一次被调用时才执行函数<code>f</code>。当<code>Once</code>对象已经调用<code>Do</code>方法后，即使更换<code>f</code>函数也不会再执行，所以不同的<code>f</code>函数需要声明不同的<code>Once</code>对象。<br>因为<code>f</code>是没有参数的，如果要执行的<code>f</code>需要传递参数就需要搭配<strong>闭包</strong>来使用，比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.once.Do(<span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123; config.init(filename) &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>因为只有<code>f</code>返回后<code>Do</code>方法才会返回，所以<code>f</code>若引起了<code>Do</code>的调用，会导致死锁。</p>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> once sync.Once</span><br><span class="line">onceBody := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Only once&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">bool</span>)</span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        once.Do(onceBody)</span><br><span class="line">        done &lt;- <span class="literal">true</span></span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    &lt;-done</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Only once</span><br></pre></td></tr></table></figure>
+
+<p><code>sync.Once</code>内部包含的互斥锁能保证<code>f</code>的操作是<strong>并发安全</strong>的。</p>
+<h3 id="sync-Map：并发安全的映射"><a href="#sync-Map：并发安全的映射" class="headerlink" title="sync.Map：并发安全的映射"></a>sync.Map：并发安全的映射</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Map <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="comment">// 包含隐藏或非导出字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Map</code>类似于Go <code>map[interface&#123;&#125;]interface&#123;&#125;</code>，但是可以安全地被多个<code>goroutine</code>并发使用，而无需额外的锁定或协调。 加载，存储和删除以分摊的常数时间运行。</p>
+<p><code>Map</code>类型是专用的。 大部分代码应改用带有单独锁定或协调功能的普通map，以提高类型安全性，并使其更易于维护其他不变量以及映射内容。</p>
+<p><code>Map</code>类型针对两种常见用例进行了优化：（1）一个键值对仅写入一次但读取多次，例如在仅增长的cache中；（2）多个goroutine进行读取，写入和覆盖不相交的键值对。在这两种情况下，与搭配单独的Mutex或RWMutex的Go map相比，使用Map可以显著减少锁竞争(Lock Contention)。</p>
+<p><code>Map</code>对象无需初始化，声明后即可直接使用。</p>
+<p><code>Map</code>对象目前有6个方法：</p>
+<ul>
+<li><code>func (m *Map) Delete(key interface&#123;&#125;)</code>：<code>Delete</code>方法删除<code>key</code>对应的值；</li>
+<li><code>func (m *Map) Load(key interface&#123;&#125;) (value interface&#123;&#125;, ok bool)</code>：<code>Load</code>方法返回<code>key</code>对应的值，如果找不到则返回<code>nil</code>，<code>ok</code>表示是否找到值；</li>
+<li><code>func (m *Map) LoadAndDelete(key interface&#123;&#125;) (value interface&#123;&#125;, loaded bool)</code>：<code>LoadAndDelete</code>方法1.15版本才有，其删除<code>key</code>对应的值并返回该值，<code>loaded</code>表示<code>key</code>是否存在；</li>
+<li><code>func (m *Map) LoadOrStore(key, value interface&#123;&#125;) (actual interface&#123;&#125;, loaded bool)</code>：<code>LoadOrStore</code>方法，如果<code>key</code>存在则返回对应的值，如果不存在，则存储传入的<code>key</code>和<code>value</code>，返回传入的<code>value</code>，<code>loaded</code>为<code>true</code>表示载入(load)，为<code>false</code>表示存储(store)；</li>
+<li><code>func (m *Map) Range(f func(key, value interface&#123;&#125;) bool)</code>：<code>Range</code>方法遍历<code>Map</code>对象，函数<code>f</code>接收参数<code>key</code>和<code>value</code>，返回一个<code>bool</code>值，返回<code>true</code>表示直接进行下一循环（接收下一对<code>key-value</code>），返回<code>false</code>表示结束循环（停止遍历）。遍历过程是<strong>无序</strong>的，与存储的顺序无关；</li>
+<li><code>func (m *Map) Store(key, value interface&#123;&#125;)</code>：<code>Store</code>方法存储键值对。</li>
+</ul>
+<p><code>Range</code>方法示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m1 sync.Map</span><br><span class="line">m1.Store(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">m1.Store(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">m1.Store(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">f := <span class="function"><span class="keyword">func</span><span class="params">(k, v <span class="keyword">interface</span>&#123;&#125;)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">	fmt.Println(k, v)</span><br><span class="line">	<span class="keyword">if</span> k == <span class="number">3</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">m1.Range(f)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>因为遍历是无序的，所以输出只是其中一次输出，可以看到遍历到3就结束了。</p>
+<h2 id="package-atomic"><a href="#package-atomic" class="headerlink" title="package atomic"></a>package atomic</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;sync/atomic&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码中的加锁操作因为涉及内核态的上下文切换会比较耗时、代价比较高。针对基本数据类型我们还可以使用原子操作来保证并发安全，因为原子操作是Go语言提供的方法，它在用户态就可以完成，因此性能比加锁操作更好。</p>
+<p><code>atomic</code>包提供了底层的原子级内存操作，对于同步算法的实现很有用。</p>
+<p>这些函数必须谨慎地保证正确使用。除了某些特殊的底层应用，使用通道或者sync包的函数&#x2F;类型实现同步更好。</p>
+<p>应通过通信来共享内存，而不通过共享内存实现通信。</p>
+<p><code>atomic</code>包提供的函数如下：</p>
+<h3 id="读取系列"><a href="#读取系列" class="headerlink" title="读取系列"></a>读取系列</h3><p>原子性的获取<code>*addr</code>的值。</p>
+<ul>
+<li><code>func LoadInt32(addr *int32) (val int32)</code></li>
+<li><code>func LoadInt64(addr *int64) (val int64)</code></li>
+<li><code>func LoadUint32(addr *uint32) (val uint32)</code></li>
+<li><code>func LoadUint64(addr *uint64) (val uint64)</code></li>
+<li><code>func LoadUintptr(addr *uintptr) (val uintptr)</code></li>
+<li><code>func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)</code></li>
+</ul>
+<h3 id="写入系列"><a href="#写入系列" class="headerlink" title="写入系列"></a>写入系列</h3><p>原子性的将<code>val</code>的值保存到<code>*addr</code>。</p>
+<ul>
+<li><code>func StoreInt32(addr *int32, val int32)</code></li>
+<li><code>func StoreInt64(addr *int64, val int64)</code></li>
+<li><code>func StoreUint32(addr *uint32, val uint32)</code></li>
+<li><code>func StoreUint64(addr *uint64, val uint64)</code></li>
+<li><code>func StoreUintptr(addr *uintptr, val uintptr)</code></li>
+<li><code>func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)</code></li>
+</ul>
+<h3 id="修改系列（加减操作）"><a href="#修改系列（加减操作）" class="headerlink" title="修改系列（加减操作）"></a>修改系列（加减操作）</h3><p>原子性的将<code>delta</code>的值添加到<code>*addr</code>并返回新值。</p>
+<ul>
+<li><code>func AddInt32(addr *int32, delta int32) (new int32)</code></li>
+<li><code>func AddInt64(addr *int64, delta int64) (new int64)</code></li>
+<li><code>func AddUint32(addr *uint32, delta uint32) (new uint32)</code></li>
+<li><code>func AddUint64(addr *uint64, delta uint64) (new uint64)</code></li>
+<li><code>func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)</code></li>
+</ul>
+<p>特别的，对于<code>AddUint32</code>和<code>AddUint64</code>，以<code>AddUint64</code>为例，如果要让<code>x</code>减去一个值<code>c</code>，调用<code>AddUint64(&amp;x, ^uint64(c-1))</code>；让<code>x</code>减1，调用<code>AddUint64(&amp;x, ^uint64(0))</code>。</p>
+<h3 id="交换系列"><a href="#交换系列" class="headerlink" title="交换系列"></a>交换系列</h3><p>原子性的将<code>new</code>值保存到<code>*addr</code>并返回<code>*addr</code>原来的值。</p>
+<ul>
+<li><code>func SwapInt32(addr *int32, new int32) (old int32)</code></li>
+<li><code>func SwapInt64(addr *int64, new int64) (old int64)</code></li>
+<li><code>func SwapUint32(addr *uint32, new uint32) (old uint32)</code></li>
+<li><code>func SwapUint64(addr *uint64, new uint64) (old uint64)</code></li>
+<li><code>func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)</code></li>
+<li><code>func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)</code></li>
+</ul>
+<h3 id="比较并交换系列"><a href="#比较并交换系列" class="headerlink" title="比较并交换系列"></a>比较并交换系列</h3><p>原子性的比较<code>*addr</code>和<code>old</code>，如果相同则将<code>new</code>赋值给<code>*addr</code>并返回真。</p>
+<ul>
+<li><code>func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)</code></li>
+<li><code>func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)</code></li>
+<li><code>func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)</code></li>
+<li><code>func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)</code></li>
+<li><code>func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)</code></li>
+<li><code>func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)</code></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://studygolang.com/pkgdoc">标准库中文文档</a><br><a target="_blank" rel="noopener" href="https://godoc.org/sync">标准库英文文档&#x2F;sync包</a><br><a target="_blank" rel="noopener" href="https://www.liwenzhou.com/posts/Go/14_concurrence/#autoid-1-7-4">博客1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jeffrey11223/article/details/79587015">博客2</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/">http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/go-golang/">go golang</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">golang基础小记（23）——并发之channel、select多路复用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/" title="golang基础小记（13）——自定义类型和类型别名(type)"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-29</div><div class="title">golang基础小记（13）——自定义类型和类型别名(type)</div></div></a></div><div><a href="/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/" title="golang基础小记（12）——defer"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">golang基础小记（12）——defer</div></div></a></div><div><a href="/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/" title="golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-10</div><div class="title">golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号</div></div></a></div><div><a href="/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/" title="golang基础小记（21）——反射"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-14</div><div class="title">golang基础小记（21）——反射</div></div></a></div><div><a href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-28</div><div class="title">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</div></div></a></div><div><a href="/2020/06/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94if%E3%80%81for%E3%80%81for%20range%E3%80%81switch/" title="golang基础小记（4）——if、for、for range、switch"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-04</div><div class="title">golang基础小记（4）——if、for、for range、switch</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#package-sync"><span class="toc-number">1.</span> <span class="toc-text">package sync</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sync-WaitGroup"><span class="toc-number">1.1.</span> <span class="toc-text">sync.WaitGroup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sync-Mutex%EF%BC%9A%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">1.2.</span> <span class="toc-text">sync.Mutex：互斥锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sync-RWMutex%EF%BC%9A%E8%AF%BB%E5%86%99%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">1.3.</span> <span class="toc-text">sync.RWMutex：读写互斥锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sync-Once%EF%BC%9A%E4%BF%9D%E8%AF%81%E5%87%BD%E6%95%B0%E5%8F%AA%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1"><span class="toc-number">1.4.</span> <span class="toc-text">sync.Once：保证函数只执行一次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sync-Map%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%AE%89%E5%85%A8%E7%9A%84%E6%98%A0%E5%B0%84"><span class="toc-number">1.5.</span> <span class="toc-text">sync.Map：并发安全的映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-atomic"><span class="toc-number">2.</span> <span class="toc-text">package atomic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E7%B3%BB%E5%88%97"><span class="toc-number">2.1.</span> <span class="toc-text">读取系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E7%B3%BB%E5%88%97"><span class="toc-number">2.2.</span> <span class="toc-text">写入系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E5%88%97%EF%BC%88%E5%8A%A0%E5%87%8F%E6%93%8D%E4%BD%9C%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">修改系列（加减操作）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E7%B3%BB%E5%88%97"><span class="toc-number">2.4.</span> <span class="toc-text">交换系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%B9%B6%E4%BA%A4%E6%8D%A2%E7%B3%BB%E5%88%97"><span class="toc-number">2.5.</span> <span class="toc-text">比较并交换系列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致"/></a><div class="content"><a class="title" href="/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/" title="golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致">golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</a><time datetime="2020-08-28T10:30:46.000Z" title="发表于 2020-08-28 18:30:46">2020-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作"/></a><div class="content"><a class="title" href="/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/" title="golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作">golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</a><time datetime="2020-08-26T05:43:06.000Z" title="发表于 2020-08-26 13:43:06">2020-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（23）——并发之channel、select多路复用"/></a><div class="content"><a class="title" href="/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" title="golang基础小记（23）——并发之channel、select多路复用">golang基础小记（23）——并发之channel、select多路复用</a><time datetime="2020-08-19T09:08:09.000Z" title="发表于 2020-08-19 17:08:09">2020-08-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang包的日常（4）——math/rand包：生成随机数"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/" title="golang包的日常（4）——math/rand包：生成随机数">golang包的日常（4）——math/rand包：生成随机数</a><time datetime="2020-08-17T10:21:19.000Z" title="发表于 2020-08-17 18:21:19">2020-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup"/></a><div class="content"><a class="title" href="/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/" title="golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup">golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup</a><time datetime="2020-08-17T09:30:54.000Z" title="发表于 2020-08-17 17:30:54">2020-08-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
