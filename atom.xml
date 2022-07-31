@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Welcome to my Blog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="http://website13.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="http://website13.github.io/"/>
   <updated>2022-07-31T09:22:36.783Z</updated>
-  <id>http://example.com/</id>
+  <id>http://website13.github.io/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>golang基础小记（24）——reflect.DeepEqual函数：判断两个值是否一致</title>
-    <link href="http://example.com/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/"/>
-    <id>http://example.com/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/</id>
+    <link href="http://website13.github.io/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/"/>
+    <id>http://website13.github.io/2020/08/28/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8824%EF%BC%89%E2%80%94%E2%80%94reflect.DeepEqual%E5%87%BD%E6%95%B0%EF%BC%9A%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4/</id>
     <published>2020-08-28T10:30:46.000Z</published>
     <updated>2022-07-31T09:22:36.783Z</updated>
     
@@ -35,17 +35,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang包的日常（5）——sync包：并发同步；sync/atomic包：原子级内存操作</title>
-    <link href="http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/</id>
+    <link href="http://website13.github.io/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/"/>
+    <id>http://website13.github.io/2020/08/26/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94sync%E5%8C%85%EF%BC%9A%E5%B9%B6%E5%8F%91%E5%90%8C%E6%AD%A5%EF%BC%9Bsync!atomic%E5%8C%85%EF%BC%9A%E5%8E%9F%E5%AD%90%E7%BA%A7%E5%86%85%E5%AD%98%E6%93%8D%E4%BD%9C/</id>
     <published>2020-08-26T05:43:06.000Z</published>
     <updated>2022-07-31T09:22:26.860Z</updated>
     
@@ -61,17 +61,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（23）——并发之channel、select多路复用</title>
-    <link href="http://example.com/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"/>
-    <id>http://example.com/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
+    <link href="http://website13.github.io/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"/>
+    <id>http://website13.github.io/2020/08/19/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8823%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bchannel%E3%80%81select%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
     <published>2020-08-19T09:08:09.000Z</published>
     <updated>2022-07-31T09:22:35.671Z</updated>
     
@@ -87,17 +87,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang包的日常（4）——math/rand包：生成随机数</title>
-    <link href="http://example.com/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
-    <id>http://example.com/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
+    <link href="http://website13.github.io/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+    <id>http://website13.github.io/2020/08/17/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94math!rand%E5%8C%85%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
     <published>2020-08-17T10:21:19.000Z</published>
     <updated>2022-07-31T09:22:25.310Z</updated>
     
@@ -113,17 +113,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang random" scheme="http://example.com/tags/go-golang-random/"/>
+    <category term="go golang random" scheme="http://website13.github.io/tags/go-golang-random/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（22）——并发之goroutine：使用方式、sync.WaitGroup</title>
-    <link href="http://example.com/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/"/>
-    <id>http://example.com/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/</id>
+    <link href="http://website13.github.io/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/"/>
+    <id>http://website13.github.io/2020/08/17/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8822%EF%BC%89%E2%80%94%E2%80%94%E5%B9%B6%E5%8F%91%E4%B9%8Bgoroutine%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%E3%80%81sync.WaitGroup/</id>
     <published>2020-08-17T09:30:54.000Z</published>
     <updated>2022-07-31T09:22:34.614Z</updated>
     
@@ -139,17 +139,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go 多线程" scheme="http://example.com/tags/golang-go-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <category term="golang go 多线程" scheme="http://website13.github.io/tags/golang-go-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>golang包的日常（3）——strconv包：基本数据类型和其字符串表示的相互转换</title>
-    <link href="http://example.com/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
-    <id>http://example.com/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</id>
+    <link href="http://website13.github.io/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://website13.github.io/2020/08/16/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94strconv%E5%8C%85%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%85%B6%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</id>
     <published>2020-08-16T09:30:33.000Z</published>
     <updated>2022-07-31T09:22:24.463Z</updated>
     
@@ -165,17 +165,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（21）——反射</title>
-    <link href="http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/"/>
-    <id>http://example.com/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/</id>
+    <link href="http://website13.github.io/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/"/>
+    <id>http://website13.github.io/2020/08/14/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8821%EF%BC%89%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84/</id>
     <published>2020-08-14T04:21:14.000Z</published>
     <updated>2022-07-31T09:22:33.484Z</updated>
     
@@ -191,17 +191,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（20）——将格式化字符串作为函数参数</title>
-    <link href="http://example.com/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/"/>
-    <id>http://example.com/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</id>
+    <link href="http://website13.github.io/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/"/>
+    <id>http://website13.github.io/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8820%EF%BC%89%E2%80%94%E2%80%94%E5%B0%86%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/</id>
     <published>2020-08-10T09:22:01.000Z</published>
     <updated>2022-07-31T09:22:32.103Z</updated>
     
@@ -218,17 +218,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go 字符串" scheme="http://example.com/tags/golang-go-%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <category term="golang go 字符串" scheme="http://website13.github.io/tags/golang-go-%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（19）——runtime.Caller简单使用：获取函数名和对应的文件名、行号</title>
-    <link href="http://example.com/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/"/>
-    <id>http://example.com/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/</id>
+    <link href="http://website13.github.io/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/"/>
+    <id>http://website13.github.io/2020/08/10/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8819%EF%BC%89%E2%80%94%E2%80%94runtime.Caller%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%9A%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E8%A1%8C%E5%8F%B7/</id>
     <published>2020-08-10T07:45:16.000Z</published>
     <updated>2022-07-31T09:22:30.134Z</updated>
     
@@ -244,17 +244,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang包的日常（2）——log包</title>
-    <link href="http://example.com/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/"/>
-    <id>http://example.com/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/</id>
+    <link href="http://website13.github.io/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/"/>
+    <id>http://website13.github.io/2020/08/09/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94log%E5%8C%85/</id>
     <published>2020-08-09T07:28:48.000Z</published>
     <updated>2022-07-31T09:22:23.559Z</updated>
     
@@ -270,17 +270,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang包的日常（1）——time包</title>
-    <link href="http://example.com/2020/08/08/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94time%E5%8C%85/"/>
-    <id>http://example.com/2020/08/08/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94time%E5%8C%85/</id>
+    <link href="http://website13.github.io/2020/08/08/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94time%E5%8C%85/"/>
+    <id>http://website13.github.io/2020/08/08/golang%E5%8C%85%E7%9A%84%E6%97%A5%E5%B8%B8%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94time%E5%8C%85/</id>
     <published>2020-08-08T08:06:35.000Z</published>
     <updated>2022-07-31T09:22:22.488Z</updated>
     
@@ -296,17 +296,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（18）——文件操作：文件开关、简单的读写实例、设置文件读写位置、文件删除、文件名重命名、文件操作相关方法/函数补充</title>
-    <link href="http://example.com/2020/08/07/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8818%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%96%87%E4%BB%B6%E5%BC%80%E5%85%B3%E3%80%81%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%BB%E5%86%99%E5%AE%9E%E4%BE%8B%E3%80%81%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE%E3%80%81%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E3%80%81%E6%96%87%E4%BB%B6%E5%90%8D%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%81%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95!%E5%87%BD%E6%95%B0%E8%A1%A5%E5%85%85/"/>
-    <id>http://example.com/2020/08/07/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8818%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%96%87%E4%BB%B6%E5%BC%80%E5%85%B3%E3%80%81%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%BB%E5%86%99%E5%AE%9E%E4%BE%8B%E3%80%81%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE%E3%80%81%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E3%80%81%E6%96%87%E4%BB%B6%E5%90%8D%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%81%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95!%E5%87%BD%E6%95%B0%E8%A1%A5%E5%85%85/</id>
+    <link href="http://website13.github.io/2020/08/07/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8818%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%96%87%E4%BB%B6%E5%BC%80%E5%85%B3%E3%80%81%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%BB%E5%86%99%E5%AE%9E%E4%BE%8B%E3%80%81%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE%E3%80%81%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E3%80%81%E6%96%87%E4%BB%B6%E5%90%8D%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%81%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95!%E5%87%BD%E6%95%B0%E8%A1%A5%E5%85%85/"/>
+    <id>http://website13.github.io/2020/08/07/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8818%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%96%87%E4%BB%B6%E5%BC%80%E5%85%B3%E3%80%81%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%BB%E5%86%99%E5%AE%9E%E4%BE%8B%E3%80%81%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE%E3%80%81%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E3%80%81%E6%96%87%E4%BB%B6%E5%90%8D%E9%87%8D%E5%91%BD%E5%90%8D%E3%80%81%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95!%E5%87%BD%E6%95%B0%E8%A1%A5%E5%85%85/</id>
     <published>2020-08-07T05:00:33.000Z</published>
     <updated>2022-07-31T09:22:28.869Z</updated>
     
@@ -322,17 +322,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（17）——包（package）：自定义包、标识符可见性、导入、init()函数、简单实例</title>
-    <link href="http://example.com/2020/08/06/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8817%EF%BC%89%E2%80%94%E2%80%94%E5%8C%85%EF%BC%88package%EF%BC%89%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E5%AF%BC%E5%85%A5%E3%80%81init()%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"/>
-    <id>http://example.com/2020/08/06/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8817%EF%BC%89%E2%80%94%E2%80%94%E5%8C%85%EF%BC%88package%EF%BC%89%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E5%AF%BC%E5%85%A5%E3%80%81init()%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</id>
+    <link href="http://website13.github.io/2020/08/06/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8817%EF%BC%89%E2%80%94%E2%80%94%E5%8C%85%EF%BC%88package%EF%BC%89%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E5%AF%BC%E5%85%A5%E3%80%81init()%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/"/>
+    <id>http://website13.github.io/2020/08/06/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8817%EF%BC%89%E2%80%94%E2%80%94%E5%8C%85%EF%BC%88package%EF%BC%89%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8C%85%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E5%AF%BC%E5%85%A5%E3%80%81init()%E5%87%BD%E6%95%B0%E3%80%81%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B/</id>
     <published>2020-08-06T06:00:41.000Z</published>
     <updated>2022-07-31T09:22:27.877Z</updated>
     
@@ -348,17 +348,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（16）——接口（interface）：基本概念、接口嵌套、空接口、类型断言（获取接口底层值）</title>
-    <link href="http://example.com/2020/08/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8816%EF%BC%89%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3%EF%BC%88interface%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E6%8E%A5%E5%8F%A3%E5%B5%8C%E5%A5%97%E3%80%81%E7%A9%BA%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80%EF%BC%88%E8%8E%B7%E5%8F%96%E6%8E%A5%E5%8F%A3%E5%BA%95%E5%B1%82%E5%80%BC%EF%BC%89/"/>
-    <id>http://example.com/2020/08/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8816%EF%BC%89%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3%EF%BC%88interface%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E6%8E%A5%E5%8F%A3%E5%B5%8C%E5%A5%97%E3%80%81%E7%A9%BA%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80%EF%BC%88%E8%8E%B7%E5%8F%96%E6%8E%A5%E5%8F%A3%E5%BA%95%E5%B1%82%E5%80%BC%EF%BC%89/</id>
+    <link href="http://website13.github.io/2020/08/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8816%EF%BC%89%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3%EF%BC%88interface%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E6%8E%A5%E5%8F%A3%E5%B5%8C%E5%A5%97%E3%80%81%E7%A9%BA%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80%EF%BC%88%E8%8E%B7%E5%8F%96%E6%8E%A5%E5%8F%A3%E5%BA%95%E5%B1%82%E5%80%BC%EF%BC%89/"/>
+    <id>http://website13.github.io/2020/08/04/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8816%EF%BC%89%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3%EF%BC%88interface%EF%BC%89%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E6%8E%A5%E5%8F%A3%E5%B5%8C%E5%A5%97%E3%80%81%E7%A9%BA%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80%EF%BC%88%E8%8E%B7%E5%8F%96%E6%8E%A5%E5%8F%A3%E5%BA%95%E5%B1%82%E5%80%BC%EF%BC%89/</id>
     <published>2020-08-04T13:22:01.000Z</published>
     <updated>2022-07-31T09:22:53.142Z</updated>
     
@@ -374,17 +374,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（15）——方法（Method）</title>
-    <link href="http://example.com/2020/07/30/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8815%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%EF%BC%88Method%EF%BC%89/"/>
-    <id>http://example.com/2020/07/30/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8815%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%EF%BC%88Method%EF%BC%89/</id>
+    <link href="http://website13.github.io/2020/07/30/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8815%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%EF%BC%88Method%EF%BC%89/"/>
+    <id>http://website13.github.io/2020/07/30/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8815%EF%BC%89%E2%80%94%E2%80%94%E6%96%B9%E6%B3%95%EF%BC%88Method%EF%BC%89/</id>
     <published>2020-07-30T09:27:01.000Z</published>
     <updated>2022-07-31T09:22:51.978Z</updated>
     
@@ -400,17 +400,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（14）——结构体：定义、初始化、构造函数、匿名字段、嵌套结构体、JSON序列化与反序列化</title>
-    <link href="http://example.com/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8814%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9A%E5%AE%9A%E4%B9%89%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%AD%97%E6%AE%B5%E3%80%81%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93%E3%80%81JSON%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    <id>http://example.com/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8814%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9A%E5%AE%9A%E4%B9%89%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%AD%97%E6%AE%B5%E3%80%81%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93%E3%80%81JSON%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</id>
+    <link href="http://website13.github.io/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8814%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9A%E5%AE%9A%E4%B9%89%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%AD%97%E6%AE%B5%E3%80%81%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93%E3%80%81JSON%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    <id>http://website13.github.io/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8814%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84%E4%BD%93%EF%BC%9A%E5%AE%9A%E4%B9%89%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%AD%97%E6%AE%B5%E3%80%81%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93%E3%80%81JSON%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</id>
     <published>2020-07-29T12:13:11.000Z</published>
     <updated>2022-07-31T09:22:50.800Z</updated>
     
@@ -426,17 +426,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（13）——自定义类型和类型别名(type)</title>
-    <link href="http://example.com/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/"/>
-    <id>http://example.com/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/</id>
+    <link href="http://website13.github.io/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/"/>
+    <id>http://website13.github.io/2020/07/29/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8813%EF%BC%89%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%92%8C%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D(type)/</id>
     <published>2020-07-29T01:49:04.000Z</published>
     <updated>2022-07-31T09:22:49.647Z</updated>
     
@@ -452,17 +452,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（12）——defer</title>
-    <link href="http://example.com/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/"/>
-    <id>http://example.com/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/</id>
+    <link href="http://website13.github.io/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/"/>
+    <id>http://website13.github.io/2020/07/26/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8812%EF%BC%89%E2%80%94%E2%80%94defer/</id>
     <published>2020-07-26T08:18:12.000Z</published>
     <updated>2022-07-31T09:22:48.573Z</updated>
     
@@ -478,17 +478,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="go golang" scheme="http://example.com/tags/go-golang/"/>
+    <category term="go golang" scheme="http://website13.github.io/tags/go-golang/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（11）——函数基础、高阶函数、匿名函数、闭包、内置函数简介</title>
-    <link href="http://example.com/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8811%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80%E3%80%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/"/>
-    <id>http://example.com/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8811%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80%E3%80%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/</id>
+    <link href="http://website13.github.io/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8811%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80%E3%80%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/"/>
+    <id>http://website13.github.io/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8811%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80%E3%80%81%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%E3%80%81%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E3%80%81%E9%97%AD%E5%8C%85%E3%80%81%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B/</id>
     <published>2020-07-25T08:30:07.000Z</published>
     <updated>2022-07-31T09:22:46.670Z</updated>
     
@@ -505,17 +505,17 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang go" scheme="http://example.com/tags/golang-go/"/>
+    <category term="golang go" scheme="http://website13.github.io/tags/golang-go/"/>
     
   </entry>
   
   <entry>
     <title>golang基础小记（10）——map</title>
-    <link href="http://example.com/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94map/"/>
-    <id>http://example.com/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94map/</id>
+    <link href="http://website13.github.io/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94map/"/>
+    <id>http://website13.github.io/2020/07/25/golang%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94map/</id>
     <published>2020-07-25T04:07:35.000Z</published>
     <updated>2022-07-31T09:22:45.572Z</updated>
     
@@ -531,10 +531,10 @@
     
     
     
-    <category term="Golang" scheme="http://example.com/categories/Golang/"/>
+    <category term="Golang" scheme="http://website13.github.io/categories/Golang/"/>
     
     
-    <category term="golang" scheme="http://example.com/tags/golang/"/>
+    <category term="golang" scheme="http://website13.github.io/tags/golang/"/>
     
   </entry>
   
